@@ -1,6 +1,11 @@
 {% extends 'strava_layout.html' %}
 
 {% block content %}
+
+    <a href="{% url 'strava_auth' %}">
+        <button>Authenticate</button>
+    </a>
+
     <div class="container card p-4 custom-card-container">
         <div class="container custom-card-header">
             <h1>Strava Activities</h1>

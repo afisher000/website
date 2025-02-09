@@ -9,20 +9,16 @@ from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from .forms import SubmissionForm
 from .models import Track
-from .scripts import youtube_download
+from .scripts.utils import youtube_download
 
 def mp3_home(request):
     return render(request, 'mp3_home.html')
 
 def mp3_download(request):
-    tracks_to_download = Track.objects.filter(downloaded=False)
-
-    for track in tracks_to_download:
-        # Download
+    # Loop over undownloaded songs, try to download
+    for track in Track.objects.filter(downloaded=False):
         try:
             youtube_download(track)
-
-            # Update database
             track.downloaded = True
             track.save()
         except Exception as e:
@@ -105,9 +101,11 @@ def mp3_create(request, song=None):
 
             track = Track(url=url, artist=artist, name=name, downloaded=False)
             track.save()
-            return render(request, 'mp3_home.html')
+            print(f'Track "{name} by {artist}" saved to database')
+            return redirect('mp3_search')
         else:
-            pass
+            print('Could not store, form was invalid')
+
     else:
         form = SubmissionForm()
 

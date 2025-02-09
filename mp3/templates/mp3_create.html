@@ -4,7 +4,7 @@
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="card p-4 custom-card-container">
             <h2 class="text-center mb-4">Track Information</h2>
-            <form method="POST">
+            <form method="POST" action="{% url 'mp3_create' %}">
                 {% csrf_token %}  <!-- CSRF protection token -->
 
                 <div class="alert alert-danger" role="alert">
@@ -48,7 +48,7 @@
         youtubeLink.addEventListener('click', function() {
             const artistInput = document.getElementById('artist').value;
             const songInput = document.getElementById('name').value;
-            const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(artistInput)}+${encodeURIComponent(songInput)}`;
+            const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(artistInput)}+${encodeURIComponent(songInput)}+ lyrics`;
             window.open(youtubeSearchUrl, '_blank'); // Opens YouTube in a new tab
         });
     </script>

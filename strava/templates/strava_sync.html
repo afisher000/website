@@ -1,0 +1,36 @@
+{% extends 'strava_layout.html' %}
+
+{% block content %}
+<h1>Welcome to the Homepage</h1>
+
+{% if access_token %}
+    <button id="fetchButton">Fetch</button>
+{% else %}
+    <a href="{% url 'strava_auth' %}">
+        <button>Authenticate</button>
+    </a>
+{% endif %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#fetchButton').click(function() {
+            // Disable the button to prevent multiple clicks
+            $(this).prop('disabled', true);
+            $(this).text('Fetching...');
+            
+            $.ajax({
+                url: '{% url "strava_home" %}',
+                type: 'GET',
+                success: function(response) {},
+                error: function(xhr, errmsg, err) { alert(errmsg); },
+                complete: function() {
+                    // Re-enable the button
+                    $('#fetchButton').text('Fetch');
+                    $('#fetchButton').prop('disabled', false);                        
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}
