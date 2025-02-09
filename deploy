@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "Removing existing container..."
+docker rm -f mycontainer 2>/dev/null
+
+echo "Removing existing image..."
+docker rmi -f myimage 2>/dev/null
+
+echo "Building docker image..."
+docker build -t myimage .
+
+echo "Creating container..."
+docker create --name mycontainer -p 8000:8000 myimage
+
+echo "Starting container..."
+docker start mycontainer
+
+echo "Attaching to container..."
+docker attach mycontainer

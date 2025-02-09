@@ -1,0 +1,125 @@
+:root {
+    --custom-maroon: #9a2629;
+    --custom-off-white: #F0ECE9;
+    --custom-gray:#6c757d;
+    --custom-light-brown:#CEBEBF;
+
+    --custom-light-red: #f5c6cb;
+}
+
+html, body {
+    background-color: var(--custom-gray); ;
+}
+a {
+    text-decoration: none;
+  }
+
+.custom-screenshot {
+    padding: 5px;
+}
+
+h5 {
+    text-indent: 30px;
+}
+
+.btn-link,
+.btn-link:hover{
+    color:var(--custom-maroon);
+    text-decoration: none;
+}
+
+.maroon-bg:hover {
+    background-color:var(--custom-maroon);
+}
+
+.text-maroon {
+    color:var(--custom-maroon);
+}
+
+.hiddenicon {
+    display: none;
+}
+
+.custom-homepage-container {
+    display:flex; 
+}
+
+.custom-card-container {
+    background-color: var(--custom-off-white);
+}
+
+.custom-card-header {
+    padding:20px 20px 0px 20px;
+}
+
+.custom-card-subheader {
+    padding-left: 40px;
+}
+
+.custom-navbar-color {
+    background-color:var(--custom-light-brown);
+}
+
+.custom-link {
+    color:var(--custom-maroon)
+}
+
+.carousel-item img {
+    height: 400px; /* Set a fixed height */
+    width: 400px; /* Width will adjust to maintain aspect ratio */
+    object-fit: contain !important; /* Crop and center the image */
+  }
+
+.carousel {
+    height:400px;
+    width: 800px;
+}
+
+.carousel-caption {
+    position: absolute;
+    left: 22% !important;
+    right: 22% !important;
+    padding-top:0.5rem !important;
+    padding-bottom:0.5rem !important;
+    background: rgba(154,26,29, 0.9); /* Optional: Add a semi-transparent background */
+}
+
+/* Danger Buttons */
+.btn-danger,
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger:focus {
+    background-color: var(--custom-maroon);
+    border-color: #6c757d;
+    color:var(--custom-off-white);
+}
+
+/* Navbar menus */
+.btn-outline-danger,
+.btn-outline-danger:active,
+.btn-outline-danger:hover,
+.btn-outline-danger:focus {
+    color:var(--custom-off-white);
+    background-color:var(--custom-maroon) !important;
+    border-color:var(--custom-light-brown) !important;
+}
+
+.dropdown-item:active {
+    color:var(--custom-off-white);
+    background-color: var(--custom-maroon);
+}
+
+ /* Change pagination css */
+.pagination .page-item:not(.active) .page-link {
+    color: var(--custom-maroon); /* Set text color for inactive page links */
+    background-color: var(--custom-off-white); /* Set background color for inactive page links */
+    border-color: #f5c6cb; /* Set border color for inactive page links */
+}
+
+.pagination .page-item.active .page-link {
+    color: var(--custom-off-white); /* Set text color for active page link */
+    background-color: var(--custom-maroon); /* Set background color for active page link */
+    border-color: var(--custom-maroon); /* Set border color for active page link */
+}
+
+

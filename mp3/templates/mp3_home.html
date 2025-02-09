@@ -1,0 +1,69 @@
+{% extends "mp3_layout.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container-fluid custom-homepage-container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6"> <!-- Adjust the column width as needed -->
+
+            <div class="p-4 custom-card-container">
+                <h1> Music Project</h1>
+                
+                <h3> Screen Shots </h3>
+                <div class="media_image" style="text-align: center; padding:10;">
+                    <img style="border: 2px solid black;" class="custom-screenshot" 
+                            src="{% static 'images/screenshots/musicSearch.png' %}" 
+                            alt="Image 1" width="60%" height='auto'> 
+                    <img style="border: 2px solid black;" class="custom-screenshot" 
+                            src="{% static 'images/screenshots/musicDownload.png' %}" 
+                            alt="Image 2" width="30%" height='auto'> 
+                </div>
+
+                <h3> Motivation </h3>
+                <p>
+                    I run with an old iPhone and have to store my music directly on the phone. 
+                    For this reason, I developed an interface to easily download new audio from YouTube (which can include lectures and audiobooks).
+                    Different artists and songs can be searched with the iTunes API along with short previews of their music.
+                </p>
+
+                <h3> Pages </h3>
+                <h6>Music Queue</h6>
+                <p> 
+                    Lists the entries that will be downloaded overnight. Use hyperlinks to edit/remove entries.
+                </p>
+
+                <h6>Search Music</h6>
+                <p> 
+                    Search for songs either by song or artist name (see attribute input). A preview of a song can be played using the playback icon. 
+                    The hyperlink is used to automatically fill a form to add the song to the queue. Use the "Search on YouTube" link to open YouTube results for that artist/song. 
+                </p>
+
+                <h6>Add Manually</h6>
+                <p> 
+                    Opens the same form for adding to the queue. This can be used for audio not found on the iTunes API.
+                </p> 
+
+                <h3>Implemented</h3>
+                <ul>
+                    <li> 
+                        Make downloading YouTube audio faster
+                        <ul>
+                            <li>Have control over mp3 property tags</li>
+                        </ul>
+                    </li>
+                    <li> Schedule scripts to download music queue directly to iTunes library</li>
+                </ul>
+        
+                <h3> Future work </h3>
+                <ul>
+                    <li> Implement more search tools using the iTunes API to help discover new/related music</li>
+                    <li> Add scripts that automatically create/add to playlists based on music properties like bpm, genre.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>Welcome to the Homepage</h1>
+
+    {% if access_token %}
+        <button id="fetchButton">Fetch</button>
+    {% else %}
+        <a href="{% url 'strava_auth' %}">
+            <button>Authenticate</button>
+        </a>
+    {% endif %}
+
+    <p>
+        {% if access_token %}
+            access_token = "{{ access_token }}"
+        {% endif %}
+    </p>
+    <p>
+        {% if athlete_id %}
+            athlete_id = "{{ athlete_id }}"
+        {% endif %}
+    </p>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#fetchButton').click(function() {
+                // Disable the button to prevent multiple clicks
+                $(this).prop('disabled', true);
+                $(this).text('Fetching...');
+                
+                $.ajax({
+                    url: '{% url "strava_fetch" %}',
+                    type: 'GET',
+                    success: function(response) {},
+                    error: function(xhr, errmsg, err) { alert(errmsg); },
+                    complete: function() {
+                        // Re-enable the button
+                        $('#fetchButton').text('Fetch');
+                        $('#fetchButton').prop('disabled', false);                        
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

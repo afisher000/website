@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-sm custom-navbar-color">
+        <div class="container-fluid align-items-center d-flex">
+
+            <!-- START Left aligned container -->
+            <div class="justify-content-start align-items-center">
+                <a href="{% url 'website_home' %}" class="navbar-brand">
+                    <img src="{% static 'images/afisherprojectFinal.png' %}" width="150" height="40">
+                </a>
+            </div>
+            <!-- END Left aligned container -->
+
+            <!-- START Right aligned container -->
+            <div class="align-items-center justify-content-end d-flex">
+
+                <!-- Machine Learning -->
+                <!-- <div class="dropdown">
+                    <a class="btn btn-outline-danger" href="/machine-learning/home">Machine Learning</a>
+                </div> -->
+
+                <!-- Dynamic dropdown menu for current project -->
+                {% block dropmenu %}
+                {% endblock %}
+
+                <!-- Dropdown menu for data projects -->
+                <div class="dropdown">
+                    <button class="btn btn-outline-danger dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Data Projects
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="/strava/home">Strava</a></li>
+                        <!-- <li><a class="dropdown-item" href="/foosball/home">Foosball</a></li> -->
+                        <li><a class="dropdown-item" href="/mp3/home">Music</a></li>
+                        <!-- <li><a class="dropdown-item" href="/kroger/home">Kroger</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a class="dropdown-item" href="/flashcards/home">Flashcards</a></li>
+                            <li><a class="dropdown-item" href="/misc/weights">Misc</a></li>
+                        {% endif %} -->
+                    </ul>
+                </div>
+
+
+            </div>
+            <!-- END Right aligned container -->
+
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "website_navbar.html" %}
+
+{% load static %}
+
+{% block dropmenu %}
+<!-- Navbar -->
+<div class="dropdown">
+    <button class="btn btn-outline-danger dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        MP3 Project
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="{% url 'mp3_home' %}">Home</a></li>
+        <li><a class="dropdown-item" href="{% url 'mp3_search' %}">Search</a></li>
+        <li><a class="dropdown-item" href="{% url 'mp3_create' %}">Submit</a></li>
+    </ul>
+</div>
+{% endblock %}
+
+
+<!-- Flash messages -->
+{% if messages %}
+    <div class="flash-messages">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
